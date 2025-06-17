@@ -29,7 +29,34 @@ body {
     margin: 0 auto;
     padding: 0 15px;
 }
-
+/* جعل الصور تتناسب مع عرض الشاشة */
+img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* حاوية المحتوى الأساسية */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* تحسين الخط والحجم والتنسيق على الشاشات الصغيرة */
+  @media (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
+  
+    /* مثال لإخفاء القائمة العادية وإظهار قائمة الهاتف */
+    .nav-menu {
+      display: none;
+    }
+    .mobile-menu {
+      display: block;
+    }
+  }
+  
 /* الأزرار */
 .btn {
     display: inline-block;
