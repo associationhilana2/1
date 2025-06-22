@@ -167,16 +167,16 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    height: 100vh;
+    min-height: 100vh; /* استخدم min-height بدلاً من height لتجنب المشاكل */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.5); /* تغطية شفافة */
-    width: 200%;
-    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%; /* إصلاح العرض */
+    min-height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -190,25 +190,27 @@ img {
     animation: fadeIn 1.5s ease;
 }
 
-.hero-logo {
-    max-width: 300px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-}
-
 .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(1.8rem, 6vw, 3rem);
     margin-bottom: 10px;
 }
 
 .hero h2 {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
     margin-bottom: 30px;
     font-weight: 400;
 }
 
+.hero-logo {
+    max-width: 90%;
+    width: min(600px, 90%);
+    display: block;
+    margin: 0 auto 20px;
+}
+
 .hero-buttons .btn {
-    padding: 12px 24px;
+    padding: 16px 32px;
+    min-width: 120px;
     margin: 0 10px;
     border-radius: 25px;
     font-weight: bold;
@@ -217,44 +219,15 @@ img {
     display: inline-block;
 }
 
-.btn.primary {
-    background-color: #ff6a00;
-    color: white;
-}
-
-.btn.primary:hover {
-    background-color: #ff8c42;
-}
-
-.btn.secondary {
-    background-color: transparent;
-    border: 2px solid white;
-    color: white;
-}
-
-.btn.secondary:hover {
-    background-color: white;
-    color: #333;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 .logo-container {
-    background-color: rgba(255, 255, 255, 0.15); /* خلفية بيضاء شفافة */
+    background-color: rgba(255, 255, 255, 0.3);
     padding: 10px 20px;
     border-radius: 16px;
     display: inline-block;
-    backdrop-filter: blur(5px); /* تأثير زجاجي ناعم (اختياري) */
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     margin-bottom: 20px;
 }
 
-.hero-logo {
-    max-width: 1000px;
-    display: block;
-}
 
 /* الإحصائيات */
 .stats {
